@@ -1,0 +1,37 @@
+/* Logo Font */
+@font-face {
+    font-family: logoFont;
+    src: url("fonts/logo/logo.ttf") format("truetype"),
+         url("fonts/logo/logo.woff") format("woff2");
+}
+
+/* Message Board */
+@font-face {
+    font-family: messageBoard;
+    src: url("fonts/message_board/Agatho_Narrow.ttf") format("truetype"),
+         url("fonts/wii_sports/wii_sports_B.woff2") format("woff2");
+}
+
+div.siteTitle {
+    font-family: logoFont;
+    font-size: 500%;
+    text-shadow: 2px 2px 3px #adadad;
+    text-align: center; 
+    position: relative;
+    top: 1%;
+    width: auto;
+    background-color: #E9EBEB;
+}
+
+div.message {
+    font-family: messageBoard;
+    font-size: 100%;
+    text-shadow: 2px 2px 3px #adadad;
+    text-align: center; 
+    position: relative;
+    
+}
+
+body {
+    background-color: #E9EBEB;
+}
