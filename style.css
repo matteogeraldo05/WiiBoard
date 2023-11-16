@@ -20,7 +20,7 @@ div.siteTitle {
     position: relative;
     top: 1%;
     width: auto;
-    background-color: #E9EBEB;
+    /* background-color: #E9EBEB; */
 }
 
 div.message {
@@ -33,5 +33,28 @@ div.message {
 }
 
 body {
-    background-color: #E9EBEB;
+    min-height: 100vh;
+    background-image: linear-gradient(#bfc2c7, #E2E5E5, #bfc2c7);
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+div.scanLines {
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 2px, transparent 2px, transparent 4px);
+}
+
+#envelope {
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+}
+
+#message {
+    position: absolute;
+    top: 50px; 
+    left: 50px; 
+    z-index: 2;
 }
