@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', function () {
         elmnt.style.zIndex = highestZIndex++;
     }
 
-    body.addEventListener('mousedown', function () {
-        body.style.cursor = 'url("/images/Pointer/grab_small.png") 48 25, auto';
+    body.addEventListener('mousedown', function (e) {
+        if (e.target.tagName.toLowerCase() !== 'textarea') {
+            body.style.cursor = 'url("/images/Pointer/grab_small.png") 48 25, auto';
+        }
     });
 
     body.addEventListener('mouseup', function () {
@@ -24,7 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function dragMouseDown(e) {
             e = e || window.event;
+            if (e.target.tagName.toLowerCase() === 'textarea') {
+                return;
+            }
             e.preventDefault();
+
             pos3 = e.clientX;
             pos4 = e.clientY;
             document.onmouseup = closeDragElement;

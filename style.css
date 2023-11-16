@@ -35,7 +35,7 @@ div.message {
 body {
     min-height: 100vh;
     background-image: linear-gradient(#bfc2c7, #E2E5E5, #bfc2c7);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     margin: 0;
     padding: 0;
 }
@@ -50,6 +50,21 @@ div.scanLines {
     position: absolute;
     z-index: 3;
     text-align: center;
+}
+
+textarea {
+    resize: none;
+    background: transparent;
+    background: url("/images/messages/blue_inside.png") no-repeat;
+    background-size: cover;
+    border: 2px solid #84CEFF;
+    font-family: messageBoard;
+}
+
+.messageHeader{
+    width: 100%;
+    height: 30px; 
+    background-color: #84CEFF;   
 }
 
 #message {
