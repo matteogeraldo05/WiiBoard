@@ -45,6 +45,7 @@ textarea {
     background: url("/images/messages/blue_inside.png") no-repeat;
     background-size: cover;
     border-style: double;
+    font-weight: bolder;
     border: 2px solid #84CEFF;
     font-family: messageBoard;
     cursor: url("/images/Pointer/point_small.png") 47 12, auto;
