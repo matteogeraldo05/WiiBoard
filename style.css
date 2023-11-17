@@ -8,28 +8,8 @@
 /* Message Board */
 @font-face {
     font-family: messageBoard;
-    src: url("fonts/message_board/Agatho_Narrow.ttf") format("truetype"),
-         url("fonts/wii_sports/wii_sports_B.woff2") format("woff2");
-}
-
-div.siteTitle {
-    font-family: logoFont;
-    font-size: 500%;
-    text-shadow: 2px 2px 3px #adadad;
-    text-align: center; 
-    position: relative;
-    top: 1%;
-    width: auto;
-    /* background-color: #E9EBEB; */
-}
-
-div.message {
-    font-family: messageBoard;
-    font-size: 100%;
-    text-shadow: 2px 2px 3px #adadad;
-    text-align: center; 
-    position: relative;
-    
+    src: url("fonts/message_board/Agatho_Thin.ttf") format("truetype"),
+         url("fonts/message_board/Agatho_Thin.woff2") format("woff2");
 }
 
 body {
@@ -46,19 +26,28 @@ div.scanLines {
     background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 2px, transparent 2px, transparent 4px);
 }
 
-#envelope {
-    position: absolute;
-    z-index: 3;
-    text-align: center;
+div.siteTitle {
+    pointer-events: none;
+    font-family: logoFont;
+    font-size: 500%;
+    text-shadow: 2px 2px 3px #adadad;
+    text-align: center; 
+    position: relative;
+    top: 1%;
+    width: auto;
+    /* background-color: #E9EBEB; */
 }
+
 
 textarea {
     resize: none;
     background: transparent;
     background: url("/images/messages/blue_inside.png") no-repeat;
     background-size: cover;
+    border-style: double;
     border: 2px solid #84CEFF;
     font-family: messageBoard;
+    cursor: url("/images/Pointer/point_small.png") 47 12, auto;
 }
 
 .messageHeader{
@@ -67,9 +56,37 @@ textarea {
     background-color: #84CEFF;   
 }
 
-#message {
+.message {
     position: absolute;
+    z-index: 2;
+}
+
+#messageBox01{
+    top: 20px; 
+    left: 20px; 
+}
+
+#messageBox02{
+    top: 30px; 
+    left: 30px; 
+}
+
+#messageBox03{
+    top: 40px; 
+    left: 40px; 
+}
+
+#messageBox04{
     top: 50px; 
     left: 50px; 
-    z-index: 2;
+}
+
+#messageBox05{
+    top: 60px; 
+    left: 60px; 
+}
+
+#messageBox06{
+    top: 70px; 
+    left: 70px; 
 }
