@@ -20,6 +20,18 @@ body {
     padding: 0;
 }
 
+div.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000; /* Initial black background */
+    opacity: 1; /* Fully opaque initially */
+    transition: opacity 1.5s ease-out; /* Transition property for opacity over 1.5 seconds */
+    z-index: 9999; /* Set a high z-index to make sure it covers other elements initially */
+}
+
 div.scanLines {
     width: 100vw;
     height: 100vh;
@@ -38,6 +50,19 @@ div.siteTitle {
     /* background-color: #E9EBEB; */
 }
 
+#clock {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0; 
+    color: transparent; 
+}
+#clock img {
+    width: 60px; 
+    height: auto; 
+    margin: -10px;
+}
 
 textarea {
     resize: none;
@@ -47,7 +72,7 @@ textarea {
     border-style: double;
     border: 2px solid #84CEFF;
     font-family: messageBoard;
-    cursor: url("/images/Pointer/point_small.png") 47 12, auto;
+    cursor: url("/images/Pointer/point_small.png") 20 8, auto;
 }
 
 .messageHeader{
@@ -67,26 +92,26 @@ textarea {
 }
 
 #messageBox02{
-    top: 30px; 
-    left: 30px; 
+    top: 430px; 
+    left: 130px; 
 }
 
 #messageBox03{
-    top: 40px; 
-    left: 40px; 
+    top: 200px; 
+    left: 240px; 
 }
 
 #messageBox04{
-    top: 50px; 
-    left: 50px; 
+    top: 350px; 
+    left: 850px; 
 }
 
 #messageBox05{
-    top: 60px; 
-    left: 60px; 
+    top: 460px; 
+    left: 460px; 
 }
 
 #messageBox06{
-    top: 70px; 
-    left: 70px; 
+    top: 270px; 
+    left: 570px; 
 }

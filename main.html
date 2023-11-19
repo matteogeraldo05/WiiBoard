@@ -9,6 +9,17 @@
         <script src="script.js"></script>
     </head>
     <body>
+        <div id="overlay" class="overlay"></div>
+        <audio autoplay onended="playSecondAudio()" id="firstAudio">
+            <source src="/audio/Wii_Menu_Startup.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <audio autoplay loop id="secondAudio">
+            <source src="/audio/Wii_Menu_Long.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+        
         <div class="scanLines">
             <div class="siteTitle">Wii Board</div>
                 <br>
@@ -27,5 +38,6 @@
             
            
         </div>
+        <div id="clock"></div>
     </body>
 </html>

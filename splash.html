@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            animation: pulse 3s infinite;
+            transition: opacity 0.55s ease-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#" id="link">
+        <img id="fadeImage" src="images/startup_screen.png" alt="Startup Screen">
+    </a>
+
+    <audio id="audio" src="/audio/splash_select.wav"></audio>
+
+    <script>
+        var linkClicked = false;
+        document.getElementById('link').addEventListener('click', function (event) {
+            event.preventDefault(); 
+    
+            if (!linkClicked) {
+                linkClicked = true;
+    
+                var audio = document.getElementById('audio');
+                audio.play();
+    
+                var img = document.querySelector('img');
+                img.addEventListener('animationiteration', function () {
+                    setTimeout(function () {
+                        window.location.href = "main.html";
+                    }, 0);
+                });
+            }
+        });
+    </script>
+    
+</body>
+</html>

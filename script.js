@@ -1,3 +1,47 @@
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(fadeOutOverlay, 1000); // Adjust the delay to control when the fadeout starts
+    setInterval(updateClock, 1000);
+});
+
+function updateClock() {
+    const clockElement = document.getElementById('clock');
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+
+    hours = hours % 12 || 12;
+
+    const digitImages = [
+        "0.png", "1.png", "2.png", "3.png", "4.png",
+        "5.png", "6.png", "7.png", "8.png", "9.png"
+    ];
+
+    const hourDigitFilename = digitImages[parseInt(hours / 10)];
+    const hourDigitFilenameOnes = digitImages[hours % 10];
+    const minuteDigitFilename = digitImages[parseInt(minutes / 10)];
+    const minuteDigitFilenameOnes = digitImages[minutes % 10];
+
+    const semicolonFilename = "semi_colon.png";
+
+    const htmlContent = `
+        <img src="/images/Menu/${hourDigitFilename}" alt="${hours / 10}">
+        <img src="/images/Menu/${hourDigitFilenameOnes}" alt="${hours % 10}">
+        <img src="/images/Menu/${semicolonFilename}" alt=":">
+        <img src="/images/Menu/${minuteDigitFilename}" alt="${minutes / 10}">
+        <img src="/images/Menu/${minuteDigitFilenameOnes}" alt="${minutes % 10}">
+    `;
+
+    clockElement.innerHTML = htmlContent;
+}
+
+function fadeOutOverlay() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.opacity = 0; // Set opacity to 0 for fading effect
+    setTimeout(() => {
+        overlay.style.display = 'none'; // Hide the overlay after the transition
+    }, 1500); // Adjust the duration to match the transition duration
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
     let highestZIndex = 1;
@@ -8,12 +52,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     body.addEventListener('mousedown', function (e) {
         if (!e.target.classList.contains('message')) {
-            body.style.cursor = 'url("/images/Pointer/grab_small.png") 48 25, auto';
+            body.style.cursor = 'url("/images/Pointer/grab_small.png") 20 20, auto';
         }
     });
 
     body.addEventListener('mouseup', function () {
-        body.style.cursor = 'url("/images/Pointer/point_small.png") 47 12, auto';
+        body.style.cursor = 'url("/images/Pointer/point_small.png") 20 8, auto';
     });
 
     function dragElement(elmnt) {
@@ -73,3 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
     dragElement(document.querySelector("#messageBox05"));
     dragElement(document.querySelector("#messageBox06"));
 });
+
+function playSecondAudio() {
+    document.getElementById('firstAudio').style.display = 'none';
+    document.getElementById('secondAudio').style.display = 'block';
+}
