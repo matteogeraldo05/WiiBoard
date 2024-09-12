@@ -11,6 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden; 
         }
 
         a {
@@ -25,15 +26,18 @@
         img {
             max-width: 100%;
             height: auto;
-            animation: pulse 3s infinite;
+            animation: pulse 1.5s infinite;
             transition: opacity 0.55s ease-out;
         }
 
         @keyframes pulse {
-            0%, 100% {
+            0% {
+                opacity: 1;
+            } 
+            50% {
                 opacity: 0;
             }
-            50% {
+            100% {
                 opacity: 1;
             }
         }
@@ -44,11 +48,12 @@
         <img id="fadeImage" src="images/startup_screen.png" alt="Startup Screen">
     </a>
 
-    <audio id="audio" src="/audio/splash_select.wav"></audio>
+    <audio id="audio" src="audio/splash_select.wav"></audio>
 
     <script>
         var linkClicked = false;
-        document.getElementById('link').addEventListener('click', function (event) {
+
+        function handleClick(event) {
             event.preventDefault(); 
     
             if (!linkClicked) {
@@ -56,16 +61,18 @@
     
                 var audio = document.getElementById('audio');
                 audio.play();
-    
-                var img = document.querySelector('img');
-                img.addEventListener('animationiteration', function () {
-                    setTimeout(function () {
-                        window.location.href = "main.html";
-                    }, 0);
-                });
+
+                document.getElementById('fadeImage').style.opacity = 0;
+
+                audio.onended = function () {
+                    window.location.href = "main.html";
+                };
+
+                document.removeEventListener('click', handleClick);
             }
-        });
+        }
+
+        document.addEventListener('click', handleClick);
     </script>
-    
 </body>
 </html>

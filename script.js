@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     setTimeout(fadeOutOverlay, 1000); // Adjust the delay to control when the fadeout starts
-    setInterval(updateClock, 1000);
+    setInterval(updateClock, 1000); // Update the clock every second
+
+    fetchMessages(); // Fetch existing messages from the server
 });
 
 function updateClock() {
@@ -42,6 +44,32 @@ function fadeOutOverlay() {
     }, 1500); // Adjust the duration to match the transition duration
 }
 
+function fetchMessages() {
+    fetch('http://localhost:3000/messages')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(msg => {
+                const messageBox = document.querySelector(`#messageBox${msg.id}`);
+                if (messageBox) {
+                    messageBox.querySelector('.textarea').value = msg.text;
+                    messageBox.style.top = `${msg.top}px`;
+                    messageBox.style.left = `${msg.left}px`;
+                }
+            });
+        });
+}
+
+function saveMessage(id, text, top, left) {
+    const message = { id, text, top, left };
+    fetch('http://localhost:3000/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(message)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Message saved:', data));
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const body = document.body;
     let highestZIndex = 1;
@@ -57,13 +85,15 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     body.addEventListener('mouseup', function () {
-        body.style.cursor = 'url("/images/Pointer/point_small.png") 20 8, auto';
+        body.style.cursor = 'url("images/Pointer/point_small.png") 20 8, auto';
     });
 
     function dragElement(elmnt) {
-        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        if (document.querySelector(`.${elmnt.classList[0]}header`)) {
-            document.querySelector(`.${elmnt.classList[0]}header`).onmousedown = dragMouseDown;
+        let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        const header = document.querySelector(`.${elmnt.classList[0]}header`);
+
+        if (header) {
+            header.onmousedown = dragMouseDown;
         } else {
             elmnt.onmousedown = dragMouseDown;
         }
@@ -90,11 +120,9 @@ document.addEventListener('DOMContentLoaded', function () {
             pos3 = e.clientX;
             pos4 = e.clientY;
 
-            // Calculate the new position
             let newTop = elmnt.offsetTop - pos2;
             let newLeft = elmnt.offsetLeft - pos1;
 
-            // Check boundaries to prevent moving outside the screen
             if (newTop >= 0 && newTop + elmnt.clientHeight <= window.innerHeight) {
                 elmnt.style.top = newTop + "px";
             }
@@ -107,9 +135,17 @@ document.addEventListener('DOMContentLoaded', function () {
         function closeDragElement() {
             document.onmouseup = null;
             document.onmousemove = null;
+
+            // Save the position and content after dragging
+            const id = elmnt.id.replace('messageBox', '');
+            const text = elmnt.querySelector('.textarea').value;
+            const top = elmnt.offsetTop;
+            const left = elmnt.offsetLeft;
+            saveMessage(id, text, top, left);
         }
     }
 
+    // Initialize drag for each message box
     dragElement(document.querySelector("#messageBox01"));
     dragElement(document.querySelector("#messageBox02"));
     dragElement(document.querySelector("#messageBox03"));

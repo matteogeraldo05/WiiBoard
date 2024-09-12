@@ -4,26 +4,25 @@
         <title>Wii Board</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="/images/Wii_logo.ico">
+        <link rel="icon" type="image/x-icon" href="images/Wii_logo.ico">
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
     </head>
     <body>
         <div id="overlay" class="overlay"></div>
         <audio autoplay onended="playSecondAudio()" id="firstAudio">
-            <source src="/audio/Wii_Menu_Startup.mp3" type="audio/mp3">
+            <source src="audio/Wii_Menu_Startup.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
         
         <audio autoplay loop id="secondAudio">
-            <source src="/audio/Wii_Menu_Long.mp3" type="audio/mp3">
+            <source src="audio/Wii_Menu_Long.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
         
         <div class="scanLines">
             <div class="siteTitle">Wii Board</div>
                 <br>
-                <center><p>Hallo</p></center>
             <!--  Your time on this world will be remembered   
             <div id="envelope">
                 <img src="/images/messages/yellow_envelope.png">
@@ -36,8 +35,13 @@
             <div class="message" id="messageBox05"><div class="messageHeader"></div><textarea class="textarea" rows="10" cols="46" placeholder="type a note here"></textarea></div>
             <div class="message" id="messageBox06"><div class="messageHeader"></div><textarea class="textarea" rows="10" cols="46" placeholder="type a note here"></textarea></div>
             
-           
+            <img src="images/Menu/menu_small.png" id="menuBackground">
+            <div>
+                <a href="https://matteogeraldo05.ga" target="_blank" class="circle-button" id="buttonMatteo"></a>
+                <a href="https://www.nintendo.com" target="_blank" class="circle-button" id="buttonNintendo"></a>
+            </div>
         </div>
+        <!-- Include date like wii ??-->
         <div id="clock"></div>
     </body>
 </html>

@@ -14,7 +14,7 @@
 
 body {
     min-height: 100vh;
-    background-image: linear-gradient(#bfc2c7, #E2E5E5, #bfc2c7);
+    background-image: linear-gradient(90deg, #bfc2c7, #f3f3f3, #bfc2c7);
     background-repeat: repeat;
     margin: 0;
     padding: 0;
@@ -26,16 +26,17 @@ div.overlay {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #000; /* Initial black background */
-    opacity: 1; /* Fully opaque initially */
-    transition: opacity 1.5s ease-out; /* Transition property for opacity over 1.5 seconds */
-    z-index: 9999; /* Set a high z-index to make sure it covers other elements initially */
+    background-color: #000; 
+    opacity: 1; 
+    transition: opacity 1.5s ease-out; 
+    z-index: 9999; 
 }
 
 div.scanLines {
     width: 100vw;
     height: 100vh;
-    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 2px, transparent 2px, transparent 4px);
+    background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.8) 2px, transparent 2px, transparent 9px);
+    z-index: 1;
 }
 
 div.siteTitle {
@@ -47,33 +48,68 @@ div.siteTitle {
     position: relative;
     top: 1%;
     width: auto;
-    /* background-color: #E9EBEB; */
+    color: #9B9B9B;
 }
 
 #clock {
     position: fixed;
-    bottom: 50px;
+    bottom: 12vw;
     left: 50%;
     transform: translateX(-50%);
     font-size: 0; 
     color: transparent; 
 }
+
 #clock img {
     width: 60px; 
     height: auto; 
     margin: -10px;
 }
 
+#menuBackground {
+    position: absolute;
+    bottom: 0vw;
+    z-index: 2; 
+}
+
+.circle-button {
+    display: flex;
+    width: 9vw; 
+    height: 9vw;
+    border-radius: 50%; 
+    background-color: #84ceff00; 
+    transition: background-color 0.3s; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    cursor: url("images/Pointer/point_small.png") 20 8, auto;
+    z-index: 3;
+}
+
+.circle-button:hover {
+    background-color: #26262636;
+}
+
+#buttonMatteo{
+    position: fixed;
+    bottom: 4.3vw;
+    left: 86%;
+}
+
+#buttonNintendo{
+    position: fixed;
+    bottom: 4.3vw;
+    left: 4.5%;
+}
+
 textarea {
     resize: none;
     background: transparent;
-    background: url("/images/messages/blue_inside.png") no-repeat;
+    background: url("images/messages/blue_inside.png") no-repeat;
     background-size: cover;
     border-style: double;
     font-weight: bolder;
     border: 2px solid #84CEFF;
     font-family: messageBoard;
-    cursor: url("/images/Pointer/point_small.png") 20 8, auto;
+    cursor: url("images/Pointer/point_small.png") 20 8, auto;
 }
 
 .messageHeader{
@@ -84,35 +120,35 @@ textarea {
 
 .message {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
 }
 
 #messageBox01{
-    top: 20px; 
-    left: 20px; 
+    top: 1vw; 
+    left: 1vw; 
 }
 
 #messageBox02{
-    top: 430px; 
-    left: 130px; 
+    top: 10vw; 
+    left: 10vw; 
 }
 
 #messageBox03{
-    top: 200px; 
-    left: 240px; 
+    top: 20vw; 
+    left: 20vw; 
 }
 
 #messageBox04{
-    top: 350px; 
-    left: 850px; 
+    top: 1vw; 
+    left: 60vw; 
 }
 
 #messageBox05{
-    top: 460px; 
-    left: 460px; 
+    top: 10vw; 
+    left: 70vw; 
 }
 
 #messageBox06{
-    top: 270px; 
-    left: 570px; 
+    top: 20vw; 
+    left: 80vw; 
 }
