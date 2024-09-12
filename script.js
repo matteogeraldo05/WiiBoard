@@ -26,11 +26,11 @@ function updateClock() {
     const semicolonFilename = "semi_colon.png";
 
     const htmlContent = `
-        <img src="/images/Menu/${hourDigitFilename}" alt="${hours / 10}">
-        <img src="/images/Menu/${hourDigitFilenameOnes}" alt="${hours % 10}">
-        <img src="/images/Menu/${semicolonFilename}" alt=":">
-        <img src="/images/Menu/${minuteDigitFilename}" alt="${minutes / 10}">
-        <img src="/images/Menu/${minuteDigitFilenameOnes}" alt="${minutes % 10}">
+        <img src="images/Menu/${hourDigitFilename}" alt="${hours / 10}">
+        <img src="images/Menu/${hourDigitFilenameOnes}" alt="${hours % 10}">
+        <img src="images/Menu/${semicolonFilename}" alt=":">
+        <img src="images/Menu/${minuteDigitFilename}" alt="${minutes / 10}">
+        <img src="images/Menu/${minuteDigitFilenameOnes}" alt="${minutes % 10}">
     `;
 
     clockElement.innerHTML = htmlContent;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     body.addEventListener('mousedown', function (e) {
         if (!e.target.classList.contains('message')) {
-            body.style.cursor = 'url("/images/Pointer/grab_small.png") 20 20, auto';
+            body.style.cursor = 'url("images/Pointer/grab_small.png") 20 20, auto';
         }
     });
 
