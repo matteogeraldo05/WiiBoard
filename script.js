@@ -26,12 +26,12 @@ function updateClock() {
     const semicolonFilename = "semi_colon.png";
 
     const htmlContent = `
-        <img src="images/Menu/${hourDigitFilename}" alt="${hours / 10}">
-        <img src="images/Menu/${hourDigitFilenameOnes}" alt="${hours % 10}">
-        <img src="images/Menu/${semicolonFilename}" alt=":">
-        <img src="images/Menu/${minuteDigitFilename}" alt="${minutes / 10}">
-        <img src="/images/Menu/${minuteDigitFilenameOnes}" alt="${minutes % 10}">
-    `;
+    <img src="images/Menu/${hourDigitFilename}" alt="${hours / 10}">
+    <img src="images/Menu/${hourDigitFilenameOnes}" alt="${hours % 10}">
+    <img src="images/Menu/${semicolonFilename}" alt=":">
+    <img src="images/Menu/${minuteDigitFilename}" alt="${minutes / 10}">
+    <img src="images/Menu/${minuteDigitFilenameOnes}" alt="${minutes % 10}">
+`;
 
     clockElement.innerHTML = htmlContent;
 }
