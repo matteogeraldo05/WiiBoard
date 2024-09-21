@@ -67,6 +67,7 @@ div.siteTitle {
 }
 
 #menuBackground {
+    width: 100%;
     position: absolute;
     bottom: 0vw;
     z-index: 2; 

@@ -1,17 +1,14 @@
 const express = require('express');
-const path = require('path');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname))); // Serve static files from the root directory
+app.use(cors());
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+let messages = [];
 
-let messages = []; // Initialize empty messages array
-
-// API endpoints
 app.get('/messages', (req, res) => {
     res.json(messages);
 });
