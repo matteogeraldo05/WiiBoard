@@ -24,8 +24,13 @@
         }
 
         img {
-            max-width: 100%;
-            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30vw;  /* Full viewport width */
+            height: auto;  /* Maintain aspect ratio */
+            max-height: 100vh; /* Limit height to viewport */
+            transform: translate(-50%, -50%); /* Center the image */
             animation: pulse 1.5s infinite;
             transition: opacity 0.55s ease-out;
         }
